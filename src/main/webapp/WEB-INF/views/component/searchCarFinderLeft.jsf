@@ -1,0 +1,70 @@
+<form method="POST" action="<c:url value='/car-finder/'/>">
+    <div>
+        <h4>Find a vehicle</h4>
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Type
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="searchType" name="searchType" class="form-control">
+                            <c:forEach var="item" items="${allTypes}">
+                                <option value="${item.value}" ${currentType == item.value ? 'selected' : ''}>${item.key}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="table">
+            <tr><td>Make</td></tr>
+            <tr><td>
+                <select id="searchMake" name="searchMake" class="form-control">
+                    <c:forEach var="item" items="${allMakes}">
+                        <option ${currentMake == item ? 'selected' : ''}>${item}</option>
+                    </c:forEach>
+                </select>
+            </td></tr>
+        </table>
+        <table class="table">
+            <tr><td>Model</td></tr>
+            <tr><td>
+                <select id="searchModel" name="searchModel" class="form-control">
+                    <c:forEach var="item" items="${allModels}">
+                        <option ${currentModel == item ? 'selected' : ''}>${item}</option>
+                    </c:forEach>
+                </select>
+            </td></tr>
+        </table>
+        <table class="table">
+            <tr><td>Year from</td><td>Year to</td></tr>
+            <tr><td>
+                <select id="searchYearFrom" name="searchYearFrom" class="form-control">
+                    <c:forEach begin="${minYear}" end="${maxYear}" var="i">
+                        <c:if test="${i==currentYearFrom}">
+                            <option selected="selected">${i}</option>
+                        </c:if>
+                        <c:if test="${i!=currentYearFrom}">
+                            <option>${i}</option>
+                        </c:if>
+                    </c:forEach>
+                </select>
+            </td><td>
+                <select id="searchYearTo" name="searchYearTo" class="form-control">
+                    <c:forEach begin="${0}" end="${maxYear - minYear}" var="i">
+                        <c:if test="${maxYear-i==currentYearTo}">
+                            <option selected="selected">${maxYear-i}</option>
+                        </c:if>
+                        <c:if test="${i!=currentYearTo}">
+                            <option>${maxYear-i}</option>
+                        </c:if>
+                    </c:forEach>
+                </select>
+            </td></tr>
+        </table>
+        <button id="searchSubmit" class="btn btn-default" type="submit">Go</button>
+    </div>
+</form>

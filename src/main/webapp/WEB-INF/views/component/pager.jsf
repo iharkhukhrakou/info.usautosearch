@@ -1,0 +1,32 @@
+<c:set var="beginPage" value="1"/>
+<c:set var="endPage" value="8"/>
+
+<c:if test="${currentPage > 5}">
+    <c:set var="beginPage" value="${currentPage - 4}"/>
+    <c:set var="endPage" value="${currentPage + 3}"/>
+</c:if>
+<c:if test="${currentPage + 3 > totalPage}">
+    <c:set var="endPage" value="${totalPage}"/>
+</c:if>
+<div role="navigation" aria-label="Pager">
+    <ul class="pagination">
+        <c:forEach begin="${beginPage}" end="${endPage}" var="i">
+            <c:if test="${currentPage == i}">
+                <c:if test="${type == 'path'}">
+                    <li class="active"><a href="<c:url value='page-${i}'/>">${i}</a></li>
+                </c:if>
+                <c:if test="${type == 'param'}">
+                    <li class="active"><a href="<c:url value='?page=${i}'/>">${i}</a></li>
+                </c:if>
+            </c:if>
+            <c:if test="${currentPage != i}">
+                <c:if test="${type == 'path'}">
+                    <li><a href="<c:url value='page-${i}'/>">${i}</a></li>
+                </c:if>
+                <c:if test="${type == 'param'}">
+                    <li><a href="<c:url value='?page=${i}'/>">${i}</a></li>
+                </c:if>
+            </c:if>
+        </c:forEach>
+    </ul>
+</div>

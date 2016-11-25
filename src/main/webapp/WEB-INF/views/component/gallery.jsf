@@ -1,0 +1,25 @@
+<script>
+    $(document).ready(
+            function() {
+                $('#gallery').unitegallery({
+                    slider_enable_arrows:true,
+                    slider_enable_zoom_panel:true,
+                    theme_enable_text_panel: false,
+                    thumb_border_width:2,
+                    thumb_over_border_width:2,
+                    thumb_selected_border_width:4,
+                    gallery_width:400,
+                    gallery_height:300});});
+</script>
+
+<div id="gallery" style="display:none;">
+    <c:forEach begin="1" end="9" var="i">
+        <c:set var="urlImage" value="${vehicle.imageThumbnail}"/>
+        <c:set var="urlImagetmp" value="${fn:substring(urlImage, 0, fn:length(urlImage) - 6)}"/>
+        <c:set var="urlImage" value="${fn:substring(urlImage, 0, fn:length(urlImage) - 5)}"/>
+        <c:set var="urlImage" value="http://${urlImage}${i}X.JPG"/>
+        <img src="${urlImage}" data-image="${urlImage}"></img>
+    </c:forEach>
+    <c:set var="urlImagetmp" value="http://${urlImagetmp}10X.JPG"/>
+    <img src="${urlImagetmp}" data-image="${urlImagetmp}"></img>
+</div>

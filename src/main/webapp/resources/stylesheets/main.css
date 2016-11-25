@@ -1,0 +1,72 @@
+body {
+    font-family: Verdana, Helvetica, sans-serif;
+}
+
+.data-entry{
+    width: 100%;
+    border-left: solid 1px #ededed;
+    border-right: solid 1px #ededed;
+    border-bottom: solid 1px #ededed;
+}
+.data-entry .column1{width: 10%;}
+.data-entry .column2{width: 30%;}
+.data-entry .column3{width: 25%;}
+.data-entry td+td {padding-left: 10px;}
+.data-entry td {vertical-align: top;padding: 10px;}
+
+.data-entry .title{
+    font-weight: bold;
+    font-size: 14px;
+}
+.data-entry-title a{color: #428bca;}
+
+.lot-content {
+    min-height: 400px;
+    margin-bottom: 40px;
+}
+
+.lot-details-box{
+    border: 1px solid #ddd;
+}
+
+.lot-details-header{
+    color: #fff;
+    height: 30px;
+    padding: 0 15px;
+    line-height: 30px;
+    font-size: 16px!important;
+    background-color: #1d5ab9;
+}
+
+.lot-details-content{
+
+}
+
+.lot-details-entry{
+    border-bottom: 1px solid #dfdfdf;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.sale-info-box{
+    border: 1px solid #ddd;
+}
+
+.sale-info-header{
+    color: #fff;
+    height: 30px;
+    padding: 0 15px;
+    line-height: 30px;
+    font-size: 16px!important;
+    background-color: #1d5ab9;
+}
+
+.sale-info-entry{
+    border-bottom: 1px solid #dfdfdf;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+}
+
+

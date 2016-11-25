@@ -1,0 +1,26 @@
+<div class="data-view">
+    <c:forEach items="${vehicles}" var="vehicle">
+        <table class="data-entry">
+            <tr>
+                <td class="column1"><div><img src="http://${vehicle.imageThumbnail}"/></div></td>
+                <td class="column2">
+                    <div class="title"><a href="<c:url value='/lot/${vehicle.lotNumber}' />">${vehicle.year} ${vehicle.make} ${vehicle.modelDetail}</a></div>
+                    <div class="vin"><span class="name">VIN: </span> ${vehicle.vin} </div>
+                    <div class="odometr"><span class="name">Mileage: </span>${vehicle.odometer} miles</div>
+                    <div class="primary"><span class="name">Damage: </span>${vehicle.damageDescription}</div>
+                </td>
+                <td class="column3">
+                    <div class="location"><span class="name">Location: </span>${vehicle.yardName}</div>
+                    <div class="city"><span class="name">City: </span>${vehicle.locationCity}</div>
+                    <div class="state"><span class="name">State: </span>${vehicle.locationState}</div>
+                    <div class="zip"><span class="name">ZIP: </span>${vehicle.locationZIP}</div>
+                    <div class="country"><span class="name">Country: </span>${vehicle.locationCountry}</div>
+                </td>
+                <td class="column4">
+
+                </td>
+            </tr>
+        </table>
+    </c:forEach>
+    <%@include file="pager.jsf" %>
+</div>
