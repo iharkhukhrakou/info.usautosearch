@@ -94,6 +94,8 @@ public class JDBCTemplateVehicleDAO implements VehicleDAO {
     public List<Vehicle> search(String formula, int from, int count) {
         String sql = "SELECT * FROM tbl_vehicle " + formula + " LIMIT " + from + "," + count;
         List<Vehicle> search = jdbcTemplate.query(sql, new VehicleMapper());
+        sql = "SELECT COUNT(*) FROM tbl_vehicle "  + formula;
+        rowCount = jdbcTemplate.queryForObject(sql, Integer.class);
         return search;
     }
 

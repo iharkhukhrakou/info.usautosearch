@@ -8,21 +8,14 @@
     <title>Salvage Vehicle Title ${vehicle.year} ${vehicle.make} ${vehicle.modelDetail} For Sale</title>
     <meta name="description" content="${vehicle.year} ${vehicle.make} ${vehicle.modelGroup} for Sale, History report, VIN report, Damage: ${vehicle.damageDescription}, Doc type: ${vehicle.saleTitleState} - ${vehicle.saleTitleType} - Salvage Vehicle Title, Vin ${vehicle.vin}, Lot: ${vehicle.lotNumber}"/>
     <meta name="keywords" content="${vehicle.make} ${vehicle.modelGroup}, vin check, vin report,history report, Salvage Vehicle Title"/>
-    <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap"/>
-    <link href="${bootstrap}" rel="stylesheet" />
+    <link href="<spring:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet" />
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <spring:url value="resources/js/bootstrap.js" var="bootstrapJs"/>
-    <script src="${bootstrapJs}"></script>
-    <spring:url value="/site/main.css" var="siteCss" />
-    <link href="${siteCss}" rel="stylesheet" />
-    <spring:url value="/gallery/js/unitegallery.min.js" var="unitegalleryJs" />
-    <script src="${unitegalleryJs}"></script>
-    <spring:url value="/gallery/themes/default/ug-theme-default.js" var="themedefaultJs" />
-    <script src="${themedefaultJs}"></script>
-    <spring:url value="/gallery/css/unite-gallery.css" var="unitegalleryCss" />
-    <link href="${unitegalleryCss}" rel="stylesheet" />
-    <spring:url value="/gallery/themes/default/ug-theme-default.css" var="themedefaultCss" />
-    <link href="${themedefaultCss}" rel="stylesheet" />
+    <script src="<spring:url value="/resources/js/bootstrap.js"/>"></script>
+    <link href="<spring:url value="/site/main.css"/>" rel="stylesheet"/>
+    <script src="<spring:url value="/gallery/js/unitegallery.min.js"/>"></script>
+    <script src="<spring:url value="/gallery/themes/default/ug-theme-default.js"/>"></script>
+    <link href="<spring:url value="/gallery/css/unite-gallery.css"/>" rel="stylesheet"/>
+    <link href="<spring:url value="/gallery/themes/default/ug-theme-default.css"/>" rel="stylesheet"/>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -132,10 +125,10 @@
                     <span><fmt:formatDate value="${vehicle.saleDate}" pattern="yyyy-MM-dd" /></span>
                 </div>
                 <div class="sale-info-entry">
-                    <a class="btn btn-primary btn-block" href="https://abetter.bid/${vehicle.lotNumber}-${vehicle.year}-${vehicle.make}-${vehicle.modelGroup}" target="_blank">Bid Now</a>
+                    <a class="btn btn-primary btn-block" href="<c:url value='/to-redirected?lot=${vehicle.lotNumber}-${vehicle.year}-${vehicle.make}-${vehicle.modelGroup}' />" rel="nofollow" target="_blank">Bid Now</a>
                 </div>
                 <div class="sale-info-entry">
-                    <a class="btn btn-success btn-block" href="http://epicvin.com/vin-${vehicle.vin}/?aff_id=582838f8b1835" target="_blank">View VIN report</a>
+                    <a class="btn btn-success btn-block" href="<c:url value='/to-redirected?vin=${vehicle.vin}' />" rel="nofollow" target="_blank">View VIN report</a>
                 </div>
             </div>
         </div>

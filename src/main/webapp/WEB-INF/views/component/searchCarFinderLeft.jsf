@@ -66,5 +66,7 @@
             </td></tr>
         </table>
         <button id="searchSubmit" class="btn btn-default" type="submit">Go</button>
+        <input type="hidden"
+               name="${_csrf.parameterName}" value="${_csrf.token}" />
     </div>
 </form>

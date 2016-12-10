@@ -1,6 +1,5 @@
 <c:set var="beginPage" value="1"/>
 <c:set var="endPage" value="8"/>
-
 <c:if test="${currentPage > 5}">
     <c:set var="beginPage" value="${currentPage - 4}"/>
     <c:set var="endPage" value="${currentPage + 3}"/>
@@ -8,8 +7,23 @@
 <c:if test="${currentPage + 3 > totalPage}">
     <c:set var="endPage" value="${totalPage}"/>
 </c:if>
+
 <div role="navigation" aria-label="Pager">
     <ul class="pagination">
+        <li class="page-item">
+            <c:if test="${type == 'path'}">
+                <a class="page-link" href="<c:url value='page-1'/>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </c:if>
+            <c:if test="${type == 'param'}">
+                <a class="page-link" href="<c:url value='?page=1'/>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </c:if>
+        </li>
         <c:forEach begin="${beginPage}" end="${endPage}" var="i">
             <c:if test="${currentPage == i}">
                 <c:if test="${type == 'path'}">
@@ -28,5 +42,19 @@
                 </c:if>
             </c:if>
         </c:forEach>
+        <li class="page-item">
+            <c:if test="${type == 'path'}">
+                <a class="page-link" href="<c:url value='page-${totalPage}'/>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </c:if>
+            <c:if test="${type == 'param'}">
+                <a class="page-link" href="<c:url value='?page=${totalPage}'/>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </c:if>
+        </li>
     </ul>
 </div>

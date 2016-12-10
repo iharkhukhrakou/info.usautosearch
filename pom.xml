@@ -10,6 +10,7 @@
 
     <properties>
         <spring.framework.version>4.3.3.RELEASE</spring.framework.version>
+        <spring.securiry.version>4.2.0.RELEASE</spring.securiry.version>
         <app.id>usautosearch</app.id>
         <app.version>1</app.version>
         <appengine.version>1.9.46</appengine.version>
@@ -38,7 +39,26 @@
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.framework.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.securiry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.securiry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.securiry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.securiry.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>commons-dbcp</groupId>

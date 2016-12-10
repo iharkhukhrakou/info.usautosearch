@@ -209,6 +209,9 @@ public class SearchController {
         mav.addObject("maxYear", searchKeys.getMaxYear());
         mav.addObject("currentYearFrom", currentYearFrom);
         mav.addObject("currentYearTo", currentYearTo);
+        mav.addObject("currentPage", currentPage);
+        mav.addObject("totalPage", (int) Math.ceil(vehicleDAO.getCount() * 1.0 / recordsPerPage));
+        mav.addObject("type", "path");
         return mav;
     }
 

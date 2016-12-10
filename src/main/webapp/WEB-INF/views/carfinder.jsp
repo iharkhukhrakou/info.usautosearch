@@ -1,25 +1,23 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
     <title>Salvage, Rebuildable and Clean Title Vehicles for Sale</title>
-    <spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss"/>
-    <link href="${bootstrapCss}" rel="stylesheet"/>
-    <spring:url value="/resources/js/bootstrap.js" var="bootstrapJs" />
-    <script src="${bootstrapJs}"></script>
-    <spring:url value="/site/site.css" var="siteCss" />
-    <link href="${siteCss}" rel="stylesheet" />
+    <link href="<spring:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet" />
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <spring:url value="/site/main.css" var="siteCss" />
-    <link href="${siteCss}" rel="stylesheet" />
+    <script src="<spring:url value="/resources/js/bootstrap.js"/>"></script>
+    <link href="<spring:url value="/site/main.css"/>" rel="stylesheet"/>
     <script>
         $(document).ready(function() {
             $('#searchType').change(function() {
+                $("#searchMake").val('All Makes');
+                $("#searchModel").val('All Models');
                 $('#searchSubmit').click();
             });
             $('#searchMake').change(function() {
+                $("#searchModel").val('All Models');
                 $('#searchSubmit').click();
             });
             $('#searchModel').change(function() {
